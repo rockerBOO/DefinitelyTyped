@@ -349,9 +349,13 @@ interface ICanvasAnimation<T> {
 	/**
 	 * Same as `fabric.Canvas#remove` but animated
 	 * @param object Object to remove
+     * @param object [callbacks] Callbacks object with optional "onComplete" and/or "onChange" properties
+     * @param {Function} [callbacks.onComplete] Invoked on completion
+     * @param {Function} [callbacks.onChange] Invoked on every step of animation
+     * @return {fabric.Canvas} thisArg
 	 * @chainable
 	 */
-	fxRemove(object: Object): T;
+	fxRemove(object: Object, callbacks?: {onComplete?: () => void, onChange?: () => void}): T;
 
 	/**
 	 * Same as {@link fabric.Canvas.prototype.straightenObject}, but animated
